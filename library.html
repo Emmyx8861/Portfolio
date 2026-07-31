@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuscript Library & Showcase</title>
+    <link rel="stylesheet" href="project.css">
+    <script src="project.js" defer></script>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Emmanuel Adewemimo's Portfolio</div>
+        <div class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="resume.html">Experience</a>
+            <a href="library.html" class="active">Library</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Interactive Book Showcase</h1>
+        <p>Interact with the live script matrix to fetch real-time segments from upcoming dark-fantasy releases.</p>
+
+        <div class="library-grid">
+            <article class="book-card">
+                <div>
+                    <div class="book-title">Nexus Requiem</div>
+                    <div class="book-tagline">The Ink of the Void & Cosmic Language.</div>
+                </div>
+                <div class="button-group">
+                    <button class="btn-interactive" data-book="nexus" data-type="plot">Synopsis</button>
+                    <button class="btn-interactive" data-book="nexus" data-type="prologue">Prologue</button>
+                    <button class="btn-interactive" data-book="nexus" data-type="chapter1">Chapter 1</button>
+                </div>
+            </article>
+
+            <article class="book-card">
+                <div>
+                    <div class="book-title">The Silver Lining of Xavier Reeds</div>
+                    <div class="book-tagline">Betrayal, Demons, and Cosmic Abysses.</div>
+                </div>
+                <div class="button-group">
+                    <button class="btn-interactive" data-book="xavier" data-type="plot">Synopsis</button>
+                    <button class="btn-interactive" data-book="xavier" data-type="prologue">Prologue</button>
+                    <button class="btn-interactive" data-book="xavier" data-type="chapter1">Chapter 1</button>
+                </div>
+            </article>
+        </div>
+
+        <h2>Live Reading Workspace</h2>
+        <section class="display-container" aria-live="polite">
+            <div id="interactive-display">
+                <p class="placeholder-text">Click any of the structural options inside the book cards above to dynamically inject manuscript components here.</p>
+            </div>
+        </section>
+
+        <section class="form-container">
+            <h2>Submit Reader Insights</h2>
+            <div id="local-storage-counter" class="counter-badge">Total Community Reviews Logged: 0</div>
+            <div id="form-status-feedback"></div>
+
+            <form id="reader-review-form" action="#" method="GET">
+                <div class="form-group">
+                    <label for="form-reader-name">Reader Full Name:</label>
+                    <input type="text" id="form-reader-name" name="readerName" required placeholder="E.g., Brother Jeremiah">
+                </div>
+                <div class="form-group">
+                    <label for="form-book-select">Select Target Manuscript:</label>
+                    <select id="form-book-select" name="targetBook" required>
+                        <option value="Nexus Requiem">Nexus Requiem</option>
+                        <option value="The Silver Lining of Xavier Reeds">The Silver Lining of Xavier Reeds</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="form-reader-msg">Manuscript Observations / Critique:</label>
+                    <textarea id="form-reader-msg" name="readerFeedback" rows="5" required placeholder="Write your thoughts here..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Commit Logs to Storage</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Adewemimo Emmanuel | WDD 131 Portfolio Project.</p>
+        <p><a href="references.html">Course Citations & References</a></p>
+    </footer>
+
+</body>
+</html>
