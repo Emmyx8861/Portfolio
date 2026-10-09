@@ -1,6 +1,8 @@
-Here is the complete, formatted JSON code for your `books.json` file. You can copy this entire block and use it to completely overwrite the current contents of the `data/books.json` file in your GitHub repository.
+I have formatted your five new poems into a brand new collection for your digital library.
 
-This file now includes the complete first volume, the available chapters from volumes two and three, and a dedicated book section for your expanded Lore and World-Building Guide.
+I added them under a new book entry titled **"Selected Poetry"** so they will appear on your `library.html` page right alongside *Nexus Requiem* and your *World-Building Guide*. Because poetry relies heavily on line breaks, I formatted each line as an individual string in the JSON so it reads naturally on the page.
+
+Here is your complete, updated `books.json` code. You can copy this entire block and use it to overwrite the existing `data/books.json` file in your GitHub repository:
 
 ```json
 {
@@ -9,176 +11,181 @@ This file now includes the complete first volume, the available chapters from vo
       "id": "nexus-requiem-vol1",
       "title": "Nexus Requiem: Volume One",
       "genre": "Fictional Mythology",
-      "description": "A look into a world crumbling down and the person who must decide what survives[cite: 5].",
+      "description": "A look into a world crumbling down and the person who must decide what survives.",
       "chapters": [
         {
           "id": "prologue",
           "title": "Prologue: The Ink of the Void",
-          "summary": "The origin of the Great Severance and the birth of the Hybrid in the Seventh Territory[cite: 9].",
+          "summary": "The origin of the Great Severance and the birth of the Hybrid in the Seventh Territory.",
           "readTime": 4,
           "sample": [
-            "The universe was not birthed from an explosion, but from a whisper. Before the first sun ignited, there was the Script—a living, breathing language that dictated the placement of every atom[cite: 9].",
-            "In the heart of Lucifer’s domain—a place of obsidian spires and ash-choked winds—a child was born. He was not meant to be. He was a biological paradox, the result of a moment where Uriel’s forbidden grace touched the Morning Star’s cold shadow[cite: 9]."
+            "The universe was not birthed from an explosion, but from a whisper. Before the first sun ignited, there was the Script—a living, breathing language that dictated the placement of every atom.",
+            "In the heart of Lucifer’s domain—a place of obsidian spires and ash-choked winds—a child was born. He was not meant to be. He was a biological paradox, the result of a moment where Uriel’s forbidden grace touched the Morning Star’s cold shadow.",
+            "When the boy took his first breath, the Great Scroll in the celestial library didn’t just record the event. It bled. A drop of violet ink fell onto the parchment, blurring the lines of the prophecy."
           ]
         },
         {
           "id": "chapter-1",
           "title": "Chapter 1: The Weight of Silence",
-          "summary": "Kaelen faces three Shadow-Walkers in the Obsidian Ring and discovers his ability to speak the Glyphs of the First Age[cite: 9].",
+          "summary": "Kaelen faces three Shadow-Walkers in the Obsidian Ring and discovers his ability to speak the Glyphs of the First Age.",
           "readTime": 12,
           "sample": [
-            "The air in the Seventh Territory was thick with the scent of ozone and burnt sulfur. It was a sky that never knew a sunrise, perpetually trapped in a bruised twilight of deep purples and jagged greys[cite: 9].",
-            "“Zom... Zin... Nir!” As the last syllable—Nir—vibrated in the air, a shockwave of brilliant azure light exploded from Kaelen’s chest. Three massive, glowing sigils manifested in a halo around his body[cite: 9]."
+            "The air in the Seventh Territory was thick with the scent of ozone and burnt sulfur. It was a sky that never knew a sunrise, perpetually trapped in a bruised twilight of deep purples and jagged greys.",
+            "Kaelen stood in the center of the Obsidian Ring, his boots crunching on the volcanic glass that carpeted the floor. He was sixteen, though his eyes—one a piercing, frozen silver, the other a molten, sun-flecked gold—looked as though they had watched centuries of slow decay.",
+            "Suddenly, the world slowed. Falling ash suspended in mid-air. The jagged lines of the obsidian spires became... readable. He saw the 'strings' of the world.",
+            "“Zom... Zin... Nir!”",
+            "As the last syllable—Nir—vibrated in the air, a shockwave of brilliant azure light exploded from Kaelen’s chest. Three massive, glowing sigils manifested in a halo around his body. They weren't the jagged, messy runes of the Sins; they were elegant, sharp, and terrifyingly beautiful."
           ]
         },
         {
           "id": "chapter-2",
           "title": "Chapter 2: The Crimson Scavenger",
-          "summary": "Kaelen meets Nyara in the Bone-Fields as a celestial Scout descends to erase him[cite: 9].",
+          "summary": "Kaelen meets Nyara in the Bone-Fields as a celestial Scout descends to erase him.",
           "readTime": 14,
           "sample": [
-            "Kaelen moved through this wasteland with the silent, practiced efficiency of a predator. He wore a heavy, charcoal-grey cloak that clung to his lean frame, its hem tattered from years of navigating the 'Sector of Broken Glass'[cite: 9].",
-            "Perched atop a rusted crane that leaned precariously over the bone-field was a figure draped in a cloak of deep, violent crimson. The girl looked to be his age, with hair as white as a dying star and eyes that were a solid, terrifying red[cite: 9]."
+            "Kaelen moved through this wasteland with the silent, practiced efficiency of a predator. He wore a heavy, charcoal-grey cloak that clung to his lean frame, its hem tattered from years of navigating the 'Sector of Broken Glass.'",
+            "Perched atop a rusted crane that leaned precariously over the bone-field was a figure draped in a cloak of deep, violent crimson. The girl looked to be his age, with hair as white as a dying star and eyes that were a solid, terrifying red.",
+            "'I'm Nyara,' she said, leaping from the crane. 'And you... you are the reason the Astraea are currently tearing holes in the upper atmosphere. I saw the ripple from three territories away. A blue flare in a red world. It was... loud.'"
           ]
         },
         {
           "id": "chapter-3",
           "title": "Chapter 3: The Scout of the First Gate",
-          "summary": "Kaelen and Nyara flee the Bone-Fields and confront the celestial Scout[cite: 9].",
+          "summary": "Kaelen and Nyara flee the Bone-Fields and confront the celestial Scout.",
           "readTime": 12,
           "sample": [
-            "The distance between the Bone-Fields and the Iron Bastion was a gauntlet of shifting geometry. In the Seventh Territory, space was not a constant; it was a suggestion made by the Sins to keep their subjects trapped[cite: 9].",
-            "Twenty yards ahead of them, a pillar of white fire slammed into the earth. The impact didn't kick up dust; it vaporized it. From the center of the crater, a figure rose[cite: 9]."
+            "The distance between the Bone-Fields and the Iron Bastion was a gauntlet of shifting geometry. In the Seventh Territory, space was not a constant; it was a suggestion made by the Sins to keep their subjects trapped.",
+            "Twenty yards ahead of them, a pillar of white fire slammed into the earth. The impact didn't kick up dust; it vaporized it. From the center of the crater, a figure rose."
           ]
         },
         {
           "id": "chapter-4",
           "title": "Chapter 4: The Path to the Rift",
-          "summary": "The duo descends into the Under-Veins and meets the Architect of Regret[cite: 9].",
+          "summary": "The duo descends into the Under-Veins and meets the Architect of Regret.",
           "readTime": 15,
           "sample": [
-            "The transition from the Bone-Fields to the deep 'Under-Veins' of the Seventh Territory was like descending from a nightmare into a fever dream[cite: 9].",
-            "From the shadows of the Record-stacks, a figure emerged. He was tall, dressed in a robe made of discarded parchment, and his skin had the texture of old, polished marble[cite: 9]."
+            "The transition from the Bone-Fields to the deep 'Under-Veins' of the Seventh Territory was like descending from a nightmare into a fever dream.",
+            "From the shadows of the Record-stacks, a figure emerged. He was tall, dressed in a robe made of discarded parchment, and his skin had the texture of old, polished marble."
           ]
         },
         {
           "id": "chapter-5",
           "title": "Chapter 5: The Architect of Regret",
-          "summary": "Kaelen receives the Zat Glyph and faces the impending arrival of Anael[cite: 9].",
+          "summary": "Kaelen receives the Zat Glyph and faces the impending arrival of Anael.",
           "readTime": 14,
           "sample": [
-            "The descent into the Iron Bastion was not a physical journey so much as a psychological unraveling[cite: 9].",
-            "The Architect stood, and as he did, the entire Bastion groaned, the gears above turning with renewed ferocity. He walked toward Kaelen, his gaze piercing through the boy’s silver and gold eyes[cite: 9]."
+            "The descent into the Iron Bastion was not a physical journey so much as a psychological unraveling.",
+            "The Architect stood, and as he did, the entire Bastion groaned, the gears above turning with renewed ferocity. He walked toward Kaelen, his gaze piercing through the boy’s silver and gold eyes."
           ]
         },
         {
           "id": "chapter-6",
           "title": "Chapter 6: The Territory of the Forsaken",
-          "summary": "Kaelen experiences the true history of the Great Severance with the help of Elias[cite: 9].",
+          "summary": "Kaelen experiences the true history of the Great Severance with the help of Elias.",
           "readTime": 16,
           "sample": [
-            "The pneumatic lift didn't just descend; it felt as though it were dropping out of reality itself[cite: 9].",
-            "Out of the grey emerged a figure that seemed to be stitched together from shadows. He wore a tattered cloak that shifted through every shade of mourning—midnight blue, charcoal grey, and a black so deep it looked like a hole in the world[cite: 9]."
+            "The pneumatic lift didn't just descend; it felt as though it were dropping out of reality itself.",
+            "Out of the grey emerged a figure that seemed to be stitched together from shadows. He wore a tattered cloak that shifted through every shade of mourning—midnight blue, charcoal grey, and a black so deep it looked like a hole in the world."
           ]
         },
         {
           "id": "chapter-7",
           "title": "Chapter 7: The Archangel of Patience",
-          "summary": "Kaelen uses the Zat Glyph against Anael, realizing the heavy cost of his power[cite: 9].",
+          "summary": "Kaelen uses the Zat Glyph against Anael, realizing the heavy cost of his power.",
           "readTime": 15,
           "sample": [
-            "The descent of Anael was not a sudden strike, but a slow, agonizing transformation of the environment[cite: 9].",
-            "Anael hovered twenty feet above the ground. She did not possess the feathered wings of the Scouts; instead, six concentric rings of rotating gold energy spun behind her back, each etched with thousands of microscopic prayers[cite: 9]."
+            "The descent of Anael was not a sudden strike, but a slow, agonizing transformation of the environment.",
+            "Anael hovered twenty feet above the ground. She did not possess the feathered wings of the Scouts; instead, six concentric rings of rotating gold energy spun behind her back, each etched with thousands of microscopic prayers."
           ]
         },
         {
           "id": "chapter-8",
           "title": "Chapter 8: The Hollow Feast",
-          "summary": "In the Territory of Gluttony, Kaelen anchors reality against a Story-Eater[cite: 9].",
+          "summary": "In the Territory of Gluttony, Kaelen anchors reality against a Story-Eater.",
           "readTime": 13,
           "sample": [
-            "The shift from the sterile, silent grey of the Forsaken lands to the Territory of Gluttony was visceral. It wasn't a transition of distance, but of sensation[cite: 9].",
-            "The ground erupted. A massive figure, nearly seven feet tall but gaunt to the point of being skeletal, rose from the amber silt. He wore heavy, rusted chains wrapped around his torso, and his skin was a pale, sickly green[cite: 9]."
+            "The shift from the sterile, silent grey of the Forsaken lands to the Territory of Gluttony was visceral. It wasn't a transition of distance, but of sensation.",
+            "The ground erupted. A massive figure, nearly seven feet tall but gaunt to the point of being skeletal, rose from the amber silt. He wore heavy, rusted chains wrapped around his torso, and his skin was a pale, sickly green."
           ]
         },
         {
           "id": "chapter-9",
           "title": "Chapter 9: The Garden of Desiccation",
-          "summary": "Kaelen confronts a Mirror-Wraith in Lust and recruits Lyra[cite: 9].",
+          "summary": "Kaelen confronts a Mirror-Wraith in Lust and recruits Lyra.",
           "readTime": 14,
           "sample": [
-            "The transition to the Territory of Lust was not a descent into the carnal, but a plunge into a suffocating, hyper-saturated beauty[cite: 9].",
-            "In the center of the hall, suspended by chains of woven light, was a girl with hair like spun silver and eyes that were a deep, mourning indigo[cite: 9]."
+            "The transition to the Territory of Lust was not a descent into the carnal, but a plunge into a suffocating, hyper-saturated beauty.",
+            "In the center of the hall, suspended by chains of woven light, was a girl with hair like spun silver and eyes that were a deep, mourning indigo."
           ]
         },
         {
           "id": "chapter-10",
           "title": "Chapter 10: The Stagnant Horizon",
-          "summary": "In Sloth, the team fights the Virtue of Indifference using the Glyph of Will[cite: 9].",
+          "summary": "In Sloth, the team fights the Virtue of Indifference using the Glyph of Will.",
           "readTime": 12,
           "sample": [
-            "If the Territory of Lust was a fever dream of beauty, the Territory of Sloth was a nightmare of indifference. As Kaelen, Nyara, Bane, and Lyra crossed the border, the vibrant violet moons of the previous realm didn't set; they simply faded into a perpetual, hazy noon[cite: 9].",
-            "Suddenly, the hazy sky began to ripple. A figure descended, but it didn't fly. It moved as if it were being dragged through the air by invisible hooks[cite: 9]."
+            "If the Territory of Lust was a fever dream of beauty, the Territory of Sloth was a nightmare of indifference. As Kaelen, Nyara, Bane, and Lyra crossed the border, the vibrant violet moons of the previous realm didn't set; they simply faded into a perpetual, hazy noon.",
+            "Suddenly, the hazy sky began to ripple. A figure descended, but it didn't fly. It moved as if it were being dragged through the air by invisible hooks."
           ]
         },
         {
           "id": "chapter-11",
           "title": "Chapter 11: The Mirror of Malice",
-          "summary": "In Envy, Kaelen merges with Vane to defeat the Virtue of Observation[cite: 9].",
+          "summary": "In Envy, Kaelen merges with Vane to defeat the Virtue of Observation.",
           "readTime": 15,
           "sample": [
-            "The border between Sloth and the Territory of Envy was a jagged scar in the earth. The moment the team crossed, the heavy, static air of the Sea of Lethargy was replaced by a wind that felt like a thousand needles pricking the skin[cite: 9].",
-            "At the center of the canyon stood a youth who looked remarkably like Kaelen—too remarkably. He had the same height, the same charcoal-grey cloak, and the same stance[cite: 9]."
+            "The border between Sloth and the Territory of Envy was a jagged scar in the earth. The moment the team crossed, the heavy, static air of the Sea of Lethargy was replaced by a wind that felt like a thousand needles pricking the skin.",
+            "At the center of the canyon stood a youth who looked remarkably like Kaelen—too remarkably. He had the same height, the same charcoal-grey cloak, and the same stance."
           ]
         },
         {
           "id": "chapter-12",
           "title": "Chapter 12: The Spire of Sovereignty",
-          "summary": "At the peak of Pride, the team recruits Jaxon and overthrows a Dominion[cite: 9].",
+          "summary": "At the peak of Pride, the team recruits Jaxon and overthrows a Dominion.",
           "readTime": 16,
           "sample": [
-            "The transition to the Territory of Pride was not marked by toxic winds or shifting mirrors, but by a terrifying, absolute silence[cite: 9].",
-            "A youth stepped out from the summit. He wore robes of midnight silk and a crown of jagged ice that seemed to grow directly from his skull. His eyes were a piercing, regal violet[cite: 9]."
+            "The transition to the Territory of Pride was not marked by toxic winds or shifting mirrors, but by a terrifying, absolute silence.",
+            "A youth stepped out from the summit. He wore robes of midnight silk and a crown of jagged ice that seemed to grow directly from his skull. His eyes were a piercing, regal violet."
           ]
         },
         {
           "id": "chapter-13",
           "title": "Chapter 13: The Mirror of the Unborn",
-          "summary": "Kaelen shatters the illusion of the 'Perfect Draft' and unlocks the Omni Glyph[cite: 9].",
+          "summary": "Kaelen shatters the illusion of the 'Perfect Draft' and unlocks the Omni Glyph.",
           "readTime": 13,
           "sample": [
-            "The summit of the Spire of Sovereignty did not lead to a higher peak, but to a horizontal tear in the fabric of the sky. This was the entrance to the Rift—the 'White Margin' of the universe where the ink of the Great Scroll was still wet[cite: 9].",
-            "In the center of the void stood a massive, free-standing mirror. It wasn't made of glass or silver, but of swirling, liquid light. This was the Mirror of the Unborn, the final guardian of the Rift[cite: 9]."
+            "The summit of the Spire of Sovereignty did not lead to a higher peak, but to a horizontal tear in the fabric of the sky. This was the entrance to the Rift—the 'White Margin' of the universe where the ink of the Great Scroll was still wet.",
+            "In the center of the void stood a massive, free-standing mirror. It wasn't made of glass or silver, but of swirling, liquid light. This was the Mirror of the Unborn, the final guardian of the Rift."
           ]
         },
         {
           "id": "chapter-14",
           "title": "Chapter 14: The Threshold of the Morning Star",
-          "summary": "Lucifer defends the team against the Septum Astraea as they enter the Rift[cite: 9].",
+          "summary": "Lucifer defends the team against the Septum Astraea as they enter the Rift.",
           "readTime": 15,
           "sample": [
-            "The golden archway did not lead to a room, but to a suspended reality. As the team crossed the threshold, the pearlescent void of the Rift’s margin was replaced by a sky of churning, liquid mercury[cite: 9].",
-            "As they stepped onto the central bridge, the mercury sky parted. A figure descended, landing with a weight that made the bone-bridge groan. He was tall, dressed in robes of midnight velvet that seemed to drink the light[cite: 9]."
+            "The golden archway did not lead to a room, but to a suspended reality. As the team crossed the threshold, the pearlescent void of the Rift’s margin was replaced by a sky of churning, liquid mercury.",
+            "As they stepped onto the central bridge, the mercury sky parted. A figure descended, landing with a weight that made the bone-bridge groan. He was tall, dressed in robes of midnight velvet that seemed to drink the light."
           ]
         },
         {
           "id": "chapter-15",
           "title": "Chapter 15: The Heart of the Great Scroll",
-          "summary": "Kaelen refuses to end the story, creating a 'Comma' and birthing a new world[cite: 9].",
+          "summary": "Kaelen refuses to end the story, creating a 'Comma' and birthing a new world.",
           "readTime": 14,
           "sample": [
-            "The doors of the Citadel didn't just close; they ceased to exist. As the team crossed into the final chamber, the violent, mercury-red sky and the screams of the dying Rift were cut off by a silence so absolute it felt like a physical pressure against their eardrums[cite: 9].",
-            "Kaelen slammed the Quill into the floor. He didn't write a sentence; he drew a door. A jagged, violet-and-gold rift that tore through the very floor of the Great Scroll[cite: 9]."
+            "The doors of the Citadel didn't just close; they ceased to exist. As the team crossed into the final chamber, the violent, mercury-red sky and the screams of the dying Rift were cut off by a silence so absolute it felt like a physical pressure against their eardrums.",
+            "Kaelen slammed the Quill into the floor. He didn't write a sentence; he drew a door. A jagged, violet-and-gold rift that tore through the very floor of the Great Scroll."
           ]
         },
         {
           "id": "epilogue",
           "title": "Epilogue: The Morning After the End",
-          "summary": "The survivors awaken in Aeterna, a world free from the Great Scroll[cite: 9].",
+          "summary": "The survivors awaken in Aeterna, a world free from the Great Scroll.",
           "readTime": 8,
           "sample": [
-            "The world did not wake up screaming. It woke up with a sigh[cite: 9].",
-            "In the center of the new world, a city was beginning to grow—Aeterna. It wasn't built of gold or obsidian, but of wood, stone, and the memories the team had saved from the Ink-Rot[cite: 9]."
+            "The world did not wake up screaming. It woke up with a sigh.",
+            "In the center of the new world, a city was beginning to grow—Aeterna. It wasn't built of gold or obsidian, but of wood, stone, and the memories the team had saved from the Ink-Rot."
           ]
         }
       ]
@@ -187,56 +194,56 @@ This file now includes the complete first volume, the available chapters from vo
       "id": "nexus-requiem-vol2-3",
       "title": "Nexus Requiem: Volumes II & III",
       "genre": "Fictional Mythology",
-      "description": "The continuation of Kaelen's journey as the Editors and Preservers threaten the Unwritten Wilds[cite: 9].",
+      "description": "The continuation of Kaelen's journey as the Editors and Preservers threaten the Unwritten Wilds.",
       "chapters": [
         {
           "id": "v2-chapter-1",
           "title": "Vol II, Chapter 1: The Echo in the Margin",
-          "summary": "Five years later, the Static-Entities arrive to edit the messy, unwritten world[cite: 9].",
+          "summary": "Five years later, the Static-Entities arrive to edit the messy, unwritten world.",
           "readTime": 10,
           "sample": [
-            "Five years had passed since the Comma was written. Aeterna had flourished, but the 'Unwritten Wilds' were growing[cite: 9].",
-            "From the shadows of the bookshelves, a figure emerged. It looked like an Archangel, but its wings were made of void, and its face was a hollow mask of static[cite: 9]."
+            "Five years had passed since the Comma was written. Aeterna had flourished, but the 'Unwritten Wilds' were growing.",
+            "From the shadows of the bookshelves, a figure emerged. It looked like an Archangel, but its wings were made of void, and its face was a hollow mask of static."
           ]
         },
         {
           "id": "v2-chapter-3",
           "title": "Vol II, Chapter 3: The Forest of First Drafts",
-          "summary": "Kaelen interfaces with the Source-Code to fight off a Copy-Editor[cite: 9].",
+          "summary": "Kaelen interfaces with the Source-Code to fight off a Copy-Editor.",
           "readTime": 12,
           "sample": [
-            "The retreat from Oakhaven felt like running through a fading photograph. As Kaelen, Nyara, and Vane fled deeper into the Northern Fringe, the world behind them didn't just disappear—it lost its 'Resolution'[cite: 9].",
-            "In the center of the grove stood a tree made of crystalline parchment. Its branches didn't have leaves; they had Source-Codes—shimmering strings of the Rift Alphabet hanging like fruit[cite: 9]."
+            "The retreat from Oakhaven felt like running through a fading photograph. As Kaelen, Nyara, and Vane fled deeper into the Northern Fringe, the world behind them didn't just disappear—it lost its 'Resolution'.",
+            "In the center of the grove stood a tree made of crystalline parchment. Its branches didn't have leaves; they had Source-Codes—shimmering strings of the Rift Alphabet hanging like fruit."
           ]
         },
         {
           "id": "v2-chapter-4",
           "title": "Vol II, Chapter 4: The Siege of the Monochrome Spire",
-          "summary": "Kaelen injects the 'Unwritten Light' into the Great Ink-Well[cite: 9].",
+          "summary": "Kaelen injects the 'Unwritten Light' into the Great Ink-Well.",
           "readTime": 15,
           "sample": [
-            "The walk to the Spire of Censorship was a descent into a world without color. As they drew closer, the vibrant 'Source-Code' energy Kaelen had tapped into at the Parchment Tree began to flicker[cite: 9].",
-            "Kaelen slammed his hand into the Ink-Well, injecting the 'Unwritten Light' directly into the Source. The black ink turned into a swirling galaxy of colors[cite: 9]."
+            "The walk to the Spire of Censorship was a descent into a world without color. As they drew closer, the vibrant 'Source-Code' energy Kaelen had tapped into at the Parchment Tree began to flicker.",
+            "Kaelen slammed his hand into the Ink-Well, injecting the 'Unwritten Light' directly into the Source. The black ink turned into a swirling galaxy of colors."
           ]
         },
         {
           "id": "v3-chapter-1",
           "title": "Vol III, Chapter 1: The Aeterna Legacy",
-          "summary": "The team lands in a world of High Fantasy, but the Preservers emerge to freeze the page forever[cite: 9].",
+          "summary": "The team lands in a world of High Fantasy, but the Preservers emerge to freeze the page forever.",
           "readTime": 12,
           "sample": [
-            "The white void didn't shatter into glass; it dissolved into a warm, torrential rain[cite: 9].",
-            "Kaelen fell, not onto metal, but into a field of tall, amber wheat that sang when the wind brushed against it. He sat up, gasping, the water clearing the last of the static from his vision[cite: 9]."
+            "The white void didn't shatter into glass; it dissolved into a warm, torrential rain.",
+            "Kaelen fell, not onto metal, but into a field of tall, amber wheat that sang when the wind brushed against it. He sat up, gasping, the water clearing the last of the static from his vision."
           ]
         },
         {
           "id": "v3-chapter-2",
           "title": "Vol III, Chapter 2: The Tide of Fluid-Ink",
-          "summary": "Kaelen races to the Violet Sea to secure the raw essence of the 'Maybe'[cite: 9].",
+          "summary": "Kaelen races to the Violet Sea to secure the raw essence of the 'Maybe'.",
           "readTime": 14,
           "sample": [
-            "The salt-mist from the mountains began to settle over the amber fields like a slow-falling shroud. Everywhere it touched, life ceased to move[cite: 9].",
-            "At the bottom of the trench, the water turned thick and dark—not like salt, but like oil. This was the Fluid-Ink. It didn't sit still; it swirled in patterns that defied geometry[cite: 9]."
+            "The salt-mist from the mountains began to settle over the amber fields like a slow-falling shroud. Everywhere it touched, life ceased to move.",
+            "At the bottom of the trench, the water turned thick and dark—not like salt, but like oil. This was the Fluid-Ink. It didn't sit still; it swirled in patterns that defied geometry."
           ]
         }
       ]
@@ -245,63 +252,236 @@ This file now includes the complete first volume, the available chapters from vo
       "id": "nexus-lore",
       "title": "Aeterna: World-Building Guide",
       "genre": "Reference & Lore",
-      "description": "Essential glyphs, phonetic constructs, and the history of the Septum Astrea[cite: 10].",
+      "description": "Essential glyphs, phonetic constructs, and the history of the Septum Astrea.",
       "chapters": [
         {
           "id": "essential-glyphs",
           "title": "Essential Glyphs & Incantations",
-          "summary": "The Words of Power established through Kaelen’s journey[cite: 10].",
+          "summary": "The Words of Power established through Kaelen’s journey.",
           "readTime": 4,
           "sample": [
-            "Zom / Zin / Nir: The 'Triple-Strike' offensive sequence. Used for flame and kinetic blasts[cite: 10].",
-            "Eth: The Fourth Glyph. Used for stabilization and focusing chaotic energy[cite: 10].",
-            "Zat: The Fifth Glyph. Memory. Allows the user to project or relive 'Absolute Truths'[cite: 10].",
-            "Vor: The Sixth Glyph. Will. Used to resist mental manipulation and lethargy[cite: 10].",
-            "Kyn: The Seventh Glyph. Union. Allows two or more spawns to merge their essences[cite: 10].",
-            "Jax: The Eighth Glyph. Sovereignty. Overwrites local laws of physics with the user's intent[cite: 10].",
-            "Omni: The Ninth Glyph. Everything. The catalyst used to shatter the Great Scroll[cite: 10].",
-            "Aeterna: The Final Glyph. Ongoing. Represents the 'Comma'—the world that refuses to end[cite: 10]."
+            "Zom / Zin / Nir: The 'Triple-Strike' offensive sequence. Used for flame and kinetic blasts.",
+            "Eth: The Fourth Glyph. Used for stabilization and focusing chaotic energy.",
+            "Zat: The Fifth Glyph. Memory. Allows the user to project or relive 'Absolute Truths'.",
+            "Vor: The Sixth Glyph. Will. Used to resist mental manipulation and lethargy.",
+            "Kyn: The Seventh Glyph. Union. Allows two or more spawns to merge their essences.",
+            "Jax: The Eighth Glyph. Sovereignty. Overwrites local laws of physics with the user's intent.",
+            "Omni: The Ninth Glyph. Everything. The catalyst used to shatter the Great Scroll.",
+            "Aeterna: The Final Glyph. Ongoing. Represents the 'Comma'—the world that refuses to end."
           ]
         },
         {
           "id": "the-spawns",
           "title": "The Seven Spawns",
-          "summary": "The 'Typos' who survived the Great Scroll to become the founders of the new world[cite: 10].",
+          "summary": "The 'Typos' who survived the Great Scroll to become the founders of the new world.",
           "readTime": 6,
           "sample": [
-            "Kaelen (The Hybrid): Son of Lucifer and Uriel. Carries the Ink-Rot scars and the ability to speak the Language[cite: 10].",
-            "Nyara (Wrath): Former resident of the Seventh Territory. Her flames now provide warmth and protection[cite: 10].",
-            "Bane (Gluttony): A skeletal giant who 'eats' knowledge. Now the Head Librarian of Aeterna[cite: 10].",
-            "Lyra (Lust): A weaver of beauty. Her indigo eyes can see the 'Resonance' of the environment[cite: 10].",
-            "Vane (Envy): A mimic who found his own face. He serves as the primary scout for the new world[cite: 10].",
-            "Jaxon (Pride): A prince of gravity. He ensures the physical laws of Aeterna remain stable[cite: 10].",
-            "Elias (Regret): The Warden of the Forgotten. He acts as the historian of the 'Old World'[cite: 10]."
+            "Kaelen (The Hybrid): Son of Lucifer and Uriel. Carries the Ink-Rot scars and the ability to speak the Language.",
+            "Nyara (Wrath): Former resident of the Seventh Territory. Her flames now provide warmth and protection.",
+            "Bane (Gluttony): A skeletal giant who 'eats' knowledge. Now the Head Librarian of Aeterna.",
+            "Lyra (Lust): A weaver of beauty. Her indigo eyes can see the 'Resonance' of the environment.",
+            "Vane (Envy): A mimic who found his own face. He serves as the primary scout for the new world.",
+            "Jaxon (Pride): A prince of gravity. He ensures the physical laws of Aeterna remain stable.",
+            "Elias (Regret): The Warden of the Forgotten. He acts as the historian of the 'Old World'."
           ]
         },
         {
           "id": "geography-threats",
           "title": "Geography, Threats & Phonetics",
-          "summary": "Details on the Unwritten Wilds, the Editors, and the Phonetic Constructs[cite: 10].",
+          "summary": "Details on the Unwritten Wilds, the Editors, and the Phonetic Constructs.",
           "readTime": 7,
           "sample": [
-            "Aeterna: The central city-state built on the shores of the Violet Sea[cite: 10].",
-            "The Editors: Entities of static that seek to 'clean up' the messy, unwritten world by erasing faces and histories[cite: 10].",
-            "Va-Lu-Zo (Vra): The root for Kinetic Spark. Used by Nyara to ignite her flames without the 'Wrath' corruption[cite: 10].",
-            "Sa-Li-In (Shi): The root for The Veil. Used by Lyra to hide the team from the 'Editors'[cite: 10].",
-            "Jalitaotinmidi: The 'Unwritten Signature.' A sequence of symbols that acts as a key for the Editors to bypass the laws of Aeterna[cite: 10]."
+            "Aeterna: The central city-state built on the shores of the Violet Sea.",
+            "The Editors: Entities of static that seek to 'clean up' the messy, unwritten world by erasing faces and histories.",
+            "Va-Lu-Zo (Vra): The root for Kinetic Spark. Used by Nyara to ignite her flames without the 'Wrath' corruption.",
+            "Sa-Li-In (Shi): The root for The Veil. Used by Lyra to hide the team from the 'Editors'.",
+            "Jalitaotinmidi: The 'Unwritten Signature.' A sequence of symbols that acts as a key for the Editors to bypass the laws of Aeterna."
           ]
         },
         {
           "id": "pantheon",
           "title": "The Septum Astrea & The Sins",
-          "summary": "The divine hierarchy and their Abyssal counterparts[cite: 10].",
+          "summary": "The divine hierarchy and their Abyssal counterparts.",
           "readTime": 5,
           "sample": [
-            "Michael (The Prince of Light) / Camael (The Echo of Severity): Domain of Justice & Conflict[cite: 10].",
-            "Lucifer (Pride): Ego-Vastness, overwriting reality with one’s own image[cite: 10].",
-            "Satan (Wrath): Kinetic Rupture, the pure destruction of existing 'Sentences'[cite: 10].",
-            "Asmodeus (Lust): Soul-Binding, forcing two separate 'Characters' into one fate[cite: 10].",
-            "Beelzebub (Gluttony): Void-Consumption, erasing the world to fill an infinite hunger[cite: 10]."
+            "Michael (The Prince of Light) / Camael (The Echo of Severity): Domain of Justice & Conflict.",
+            "Lucifer (Pride): Ego-Vastness, overwriting reality with one’s own image.",
+            "Satan (Wrath): Kinetic Rupture, the pure destruction of existing 'Sentences'.",
+            "Asmodeus (Lust): Soul-Binding, forcing two separate 'Characters' into one fate.",
+            "Beelzebub (Gluttony): Void-Consumption, erasing the world to fill an infinite hunger."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poetry-collection",
+      "title": "Selected Poetry",
+      "genre": "Poetry",
+      "description": "A collection of contemplative poems exploring human nature, adversity, and truth.",
+      "chapters": [
+        {
+          "id": "adam-and-cain",
+          "title": "Adam and Cain",
+          "summary": "A reflection on the cyclical tragedy of brothers trapped in roles of suffering and death.",
+          "readTime": 2,
+          "sample": [
+            "O Sons of Sin and Perdition,",
+            "They who are trapped in this cruel play,",
+            "Who are faced with the painful roles of two siblings,",
+            "Two brothers of the same womb,",
+            "One must die, one must suffer,",
+            "Generation after Generation, their souls continue to cry,",
+            "“Why oh why?',",
+            "He who must die cries out calling out his injustice,",
+            "“Why do I suffer, why must my blood cry out and yet you do nothing?”,",
+            "He who must kill wallows in despair,",
+            "“Why must I kill my blood?”",
+            "O ye who believe thyself to be the Shakespeare of this story,",
+            "Do not be consumed by thy hubris,",
+            "Lest you fall like your brothers and be cast down,",
+            "Fallen out of grace,",
+            "Your story shall be a warning,",
+            "For He watches,",
+            "He Sees All, He Knows All,",
+            "The Great I Am."
+          ]
+        },
+        {
+          "id": "birds-of-a-feather",
+          "title": "Birds of a feather flock together",
+          "summary": "An exploration of adversity, opportunity, and the human response to impending danger.",
+          "readTime": 2,
+          "sample": [
+            "Adversity and Opportunity come hand in hand,",
+            "Each provides whoever is graced with it a choice to make,",
+            "A chance to rise to the challenge or fall under its weight,",
+            "As described,",
+            "Birds of a feather flock together,",
+            "No,",
+            "That is Incorrect,",
+            "Birds of a feather flock together until the cat comes,",
+            "Ah yes,",
+            "Indeed, until the cat comes,",
+            "Pray tell what the cat might be,",
+            "‘Tis but a simple description, DANGER’,",
+            "One never imagines it,",
+            "No one looks for it,",
+            "Yet it comes announcing itself wherever it goes,",
+            "And so, the test begins will you accept it,",
+            "Will you accept this adversity that prides itself on brimming with danger and laced with opportunity, or,",
+            "will you avoid it and cower,",
+            "Ah Indeed the nature of man,",
+            "Is it the nature of man to run at the first sign of opportunity,",
+            "It whispers,",
+            "It beckons,",
+            "It shows itself but it is only gotten by those who are enough to rise up to the challenge."
+          ]
+        },
+        {
+          "id": "curiosity-killed-the-cat",
+          "title": "Curiosity Killed The Cat",
+          "summary": "A contemplation on ignorance, curiosity, and the fear of knowledge.",
+          "readTime": 2,
+          "sample": [
+            "Curiosity Killed the Cat,",
+            "What a sad line,",
+            "But what brought about that dangerous instinct,",
+            "Was it the need for knowledge that drove it,",
+            "Was it something more primal,",
+            "Man has always relied on it for its worst mistake,",
+            "It stands as a reminder of man’s foolishness,",
+            "A symbol that depicts man as nothing more than imperfect,",
+            "It is Ignorance,",
+            "Ignorance gave birth to curiosity to allow man to escape its clutches,",
+            "Curiosity brought about knowledge,",
+            "Knowledge brought about Innovation,",
+            "But as I said man is imperfect,",
+            "Curiosity also brings about the fear of knowledge,",
+            "Why you ask,",
+            "Because my dear if you stare into the abyss long enough it stares back,",
+            "The fear of knowledge leads to fear of the unknown,",
+            "As such the crude nature of man is realized,",
+            "What may be the point of story?,",
+            "Why all this talk and stories,",
+            "It is for you to realize that curiosity was not the issue,",
+            "It was Ignorance,",
+            "Beware, Ignorance is a double-edged blade,",
+            "It provides a haven for those who seek to hide from the truth,",
+            "Yet lies unfathomable danger for those that wallow in it,",
+            "Listen to me you who live in Ignorance,",
+            "This is neither a tale nor a warning,",
+            "It is simply a statement I must deliver,",
+            "Take heed to my words,",
+            "“Only those who can truly surpass themselves will see the truth”",
+            "This is my last line and advice; I pray it helps you."
+          ]
+        },
+        {
+          "id": "money-does-not-buy-happiness",
+          "title": "Money does not buy happiness",
+          "summary": "A critique on the societal value placed on wealth and the inherent equality of man.",
+          "readTime": 2,
+          "sample": [
+            "Money doesn’t buy happiness,",
+            "A very concise phrase used to placate the poor,",
+            "A phrase in which is incomplete, but no one seeks to look beyond the veil,",
+            "Money does not buy happiness, but a lack of it buys misery,",
+            "Why must man’s actions be dictated,",
+            "Why must man suffer because one has more money than the other,",
+            "Does man willingly choose to suffer this injustice,",
+            "Nay, since the fall of Adam a man’s life is dictated by its value,",
+            "Wherewith a man’s soul is judged not by the works of his hand, but by whoever hold more money in his coffers,",
+            "Cry to the heavens,",
+            "Let it hear this Injustice,",
+            "We are not the worms of the earth nor are we slaves,",
+            "You hold lives,",
+            "You hold our future,",
+            "You hold all that makes us dear,",
+            "Simply because they are means to your end,",
+            "Because they are additions to your reaches,",
+            "How dare you,",
+            "We are all equal before the eyes of the Lord,",
+            "I sweat,",
+            "I toil,",
+            "I labor,",
+            "I work,",
+            "I will not kneel,",
+            "I will not beg,",
+            "I will not let the coffers of a man decide my fate,",
+            "O ye prideful beasts that call yourself men,",
+            "Beware for the angel of death holds his scythe above your head,",
+            "For in the end all are mortal,",
+            "All shall return to his bosom."
+          ]
+        },
+        {
+          "id": "rome-was-not-built-in-a-day",
+          "title": "Rome was not built in a day",
+          "summary": "A poem exploring the paradox of creation and destruction, urging perseverance against complacency.",
+          "readTime": 2,
+          "sample": [
+            "Rome wasn’t built in a day,",
+            "A phrase repeated through time,",
+            "An advice given to one that patience Is key,",
+            "However, one must realize that it no longer stands,",
+            "Why, you ask,",
+            "It is simply because one must know the full truth;",
+            "Rome was not built in a day, but it burned down in one,",
+            "Ah, what indeed an irony,",
+            "A blessed paradox that shows that all things lead to nihil,",
+            "A truth that rears its ugly head to show man that adversity comes to all,",
+            "It comes to bring down all that was gotten and built,",
+            "All made and unmade,",
+            "But you must persevere,",
+            "Persevere O Son of Man,",
+            "Prove that ye are worthy,",
+            "Or you shall be cast down into the depths with no end,",
+            "Strive, ye mortal, for the earth itself seeks for you to toil,",
+            "Beware, for complacency itself seeks to be introduced as your friend,",
+            "But Alas, we are yet mortal,",
+            "For alas, all must come to an end,",
+            "And as much as creation exist,",
+            "So must its counterpart, destruction come to pass."
           ]
         }
       ]
