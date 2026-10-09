@@ -1,10 +1,3 @@
-I have formatted your five new poems into a brand new collection for your digital library.
-
-I added them under a new book entry titled **"Selected Poetry"** so they will appear on your `library.html` page right alongside *Nexus Requiem* and your *World-Building Guide*. Because poetry relies heavily on line breaks, I formatted each line as an individual string in the JSON so it reads naturally on the page.
-
-Here is your complete, updated `books.json` code. You can copy this entire block and use it to overwrite the existing `data/books.json` file in your GitHub repository:
-
-```json
 {
   "books": [
     {
