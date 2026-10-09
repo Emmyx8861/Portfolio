@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Ink & Orbit — Sample Chapter">
+  <meta property="og:description" content="Read a sample chapter from 'The Silver Lining Of Xavier Reeds'">
+  <meta property="og:image" content="images/book-cover.jpg">
+  <meta property="og:url" content="https://emmyx8861.github.io/wdd231/chapter.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Read a sample chapter from 'The Silver Lining Of Xavier Reeds'">
+  <meta name="author" content="Adewemimo Emmanuel">
+  <title>Ink & Orbit — Sample Chapter & Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/author-portfolio.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Ink & Orbit</h1>
+      <nav aria-label="Main navigation">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="chapter.html">Read Sample</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h2 id="chapter-title">Loading sample...</h2>
+      <p class="muted" id="chapter-meta"></p>
+      <section class="sample" id="chapter-content" aria-live="polite"></section>
+    </article>
+
+    <aside class="card contact">
+      <h3>Sign up for chapter updates</h3>
+      <form id="signup" action="#" method="post" aria-label="Newsletter signup">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="emmyx8861@gmail.com" required>
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+
+      <h3>Contact the author</h3>
+      <form id="contact" action="#" method="post" aria-label="Contact form">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button class="btn" type="submit">Send</button>
+      </form>
+    </aside>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/emmanuel-adewemimo" target="_blank" rel="noopener"><img src="images/linkedin-icon.png" alt="LinkedIn Profile"></a>
+        <a href="https://github.com/Emmyx8861" target="_blank" rel="noopener"><img src="images/github-icon.png" alt="GitHub Repository"></a>
+        <a href="https://x.com" target="_blank" rel="noopener"><img src="images/twitter-icon.png" alt="Twitter Profile"></a>
+      </div>
+      <p>&copy; 2026 Ink & Orbit</p>
+    </div>
+  </footer>
+  <script src="scripts/app.js" defer></script>
+</body>
+</html>
