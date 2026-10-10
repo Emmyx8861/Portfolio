@@ -133,19 +133,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     // If JSON tool output an Array of Arrays
                     if (Array.isArray(lead)) {
-                        name = lead[0] || '';
-                        city = lead[1] || '';
-                        state = lead[2] || '';
-                        type = lead[3] || '';
-                        cat = lead[4] || 'Facility';
+                        name = String(lead[0] || 'Unknown');
+                        city = String(lead[1] || 'Unknown');
+                        state = String(lead[2] || 'Unknown');
+                        type = String(lead[3] || 'Unknown');
+                        cat = String(lead[4] || 'Facility');
                     } 
                     // If JSON tool output an Array of Objects (standard)
-                    else if (typeof lead === 'object') {
+                    else if (typeof lead === 'object' && lead !== null) {
                         const keys = Object.keys(lead);
                         
                         // Smart Search: Looks for keys containing these words
                         const findValue = (keywords) => {
-                            const foundKey = keys.find(k => keywords.some(kw => k.toLowerCase().includes(kw)));
+                            const foundKey = keys.find(k => keywords.some(kw => String(k).toLowerCase().includes(kw)));
                             return foundKey ? String(lead[foundKey]) : 'Unknown';
                         };
 
@@ -158,15 +158,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         // ULTIMATE FALLBACK: If smart search fails, just grab the first 5 values blind
                         if (name === 'Unknown' && city === 'Unknown' && keys.length > 0) {
                             const vals = Object.values(lead);
-                            name = vals[0] || '';
-                            city = vals[1] || '';
-                            state = vals[2] || '';
-                            type = vals[3] || '';
-                            cat = vals[4] || 'Facility';
+                            name = String(vals[0] || 'Unknown');
+                            city = String(vals[1] || 'Unknown');
+                            state = String(vals[2] || 'Unknown');
+                            type = String(vals[3] || 'Unknown');
+                            cat = String(vals[4] || 'Facility');
                         }
                     }
 
-                    // Clean up visuals
+                    // Clean up visuals (Forcing strings prevents the .toLowerCase error!)
+                    cat = String(cat);
                     if (cat.toLowerCase().includes('unknown') || cat === '') cat = 'Facility';
 
                     const rowHtml = `
@@ -194,13 +195,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Universal Search Box
             searchInput.addEventListener("input", (e) => {
-                const searchTerm = e.target.value.toLowerCase();
+                const searchTerm = String(e.target.value).toLowerCase();
                 
                 const filteredLeads = allLeads.filter(lead => {
                     let searchString = "";
                     if (Array.isArray(lead)) {
                         searchString = lead.join(" ").toLowerCase();
-                    } else if (typeof lead === 'object') {
+                    } else if (typeof lead === 'object' && lead !== null) {
                         searchString = Object.values(lead).join(" ").toLowerCase();
                     }
                     return searchString.includes(searchTerm);
