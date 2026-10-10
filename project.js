@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Function 3: Interactive Lead Generation Database Search
+   // Function 3: Interactive Lead Generation Database Search
     const initLeadSearchEngine = async () => {
         const searchInput = document.getElementById("lead-search");
         const tableBody = document.getElementById("lead-table-body");
@@ -126,13 +126,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!response.ok) throw new Error("Could not find leads.json");
             
             const data = await response.json();
-            allLeads = data.leads;
+            // Fallback just in case the JSON converter didn't wrap it in a "leads" object
+            allLeads = data.leads ? data.leads : data; 
             
             // Function to render table rows with a performance limit
             const renderTable = (leadsToDisplay) => {
                 tableBody.innerHTML = ""; // Clear existing rows
                 
-                if (leadsToDisplay.length === 0) {
+                if (!leadsToDisplay || leadsToDisplay.length === 0) {
                     tableBody.innerHTML = `<tr><td colspan="5" style="padding: 1rem; text-align: center; color: #ef4444;">No records found matching your search.</td></tr>`;
                     return;
                 }
@@ -141,13 +142,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 const displayLimit = leadsToDisplay.slice(0, 100);
 
                 displayLimit.forEach(lead => {
+                    // Bulletproof variables: checks for lowercase FIRST, then uppercase SECOND
+                    const cat = lead.category || lead.Category || 'Unknown';
+                    const name = lead.name || lead.Name || 'Unknown';
+                    const city = lead.city || lead.City || 'Unknown';
+                    const state = lead.state || lead.State || 'Unknown';
+                    const type = lead.type || lead.Type || 'Unknown';
+
                     const rowHtml = `
                         <tr style="border-bottom: 1px solid rgba(45,35,88,0.2);">
-                            <td style="padding: 0.5rem;"><span style="background: ${lead.category === 'Tournament' ? '#0284c7' : '#8b5cf6'}; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: white;">${lead.category}</span></td>
-                            <td style="padding: 0.5rem; font-weight: bold;">${lead.name}</td>
-                            <td style="padding: 0.5rem;">${lead.city}</td>
-                            <td style="padding: 0.5rem;">${lead.state}</td>
-                            <td style="padding: 0.5rem; color: #9ca3af;">${lead.type}</td>
+                            <td style="padding: 0.5rem;"><span style="background: ${cat.toLowerCase() === 'tournament' ? '#0284c7' : '#8b5cf6'}; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: white;">${cat}</span></td>
+                            <td style="padding: 0.5rem; font-weight: bold;">${name}</td>
+                            <td style="padding: 0.5rem;">${city}</td>
+                            <td style="padding: 0.5rem;">${state}</td>
+                            <td style="padding: 0.5rem; color: #9ca3af;">${type}</td>
                         </tr>
                     `;
                     tableBody.insertAdjacentHTML('beforeend', rowHtml);
@@ -172,10 +180,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 // Filter the array based on what the user typed
                 const filteredLeads = allLeads.filter(lead => {
-                    return lead.name.toLowerCase().includes(searchTerm) || 
-                           lead.city.toLowerCase().includes(searchTerm) || 
-                           lead.state.toLowerCase().includes(searchTerm) ||
-                           lead.category.toLowerCase().includes(searchTerm);
+                    const cat = lead.category || lead.Category || '';
+                    const name = lead.name || lead.Name || '';
+                    const city = lead.city || lead.City || '';
+                    const state = lead.state || lead.State || '';
+
+                    return name.toLowerCase().includes(searchTerm) || 
+                           city.toLowerCase().includes(searchTerm) || 
+                           state.toLowerCase().includes(searchTerm) ||
+                           cat.toLowerCase().includes(searchTerm);
                 });
                 
                 renderTable(filteredLeads);
