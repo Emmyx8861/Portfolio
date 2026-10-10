@@ -110,7 +110,76 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
+    // Function 3: Interactive Lead Generation Database Search
+    const initLeadSearchEngine = async () => {
+        const searchInput = document.getElementById("lead-search");
+        const tableBody = document.getElementById("lead-table-body");
+        
+        if (!searchInput || !tableBody) return;
+
+        let allLeads = [];
+
+        try {
+            // Fetch the leads data
+            let response = await fetch("data/leads.json");
+            if (!response.ok) response = await fetch("leads.json"); 
+            if (!response.ok) throw new Error("Could not find leads.json");
+            
+            const data = await response.json();
+            allLeads = data.leads;
+            
+            // Function to render table rows
+            const renderTable = (leadsToDisplay) => {
+                tableBody.innerHTML = ""; // Clear existing rows
+                
+                if (leadsToDisplay.length === 0) {
+                    tableBody.innerHTML = `<tr><td colspan="5" style="padding: 1rem; text-align: center; color: #ef4444;">No records found matching your search.</td></tr>`;
+                    return;
+                }
+
+                leadsToDisplay.forEach(lead => {
+                    const rowHtml = `
+                        <tr style="border-bottom: 1px solid rgba(45,35,88,0.2);">
+                            <td style="padding: 0.5rem;"><span style="background: ${lead.category === 'Tournament' ? '#0284c7' : '#8b5cf6'}; padding: 2px 6px; border-radius: 4px; font-size: 0.8em;">${lead.category}</span></td>
+                            <td style="padding: 0.5rem; font-weight: bold;">${lead.name}</td>
+                            <td style="padding: 0.5rem;">${lead.city}</td>
+                            <td style="padding: 0.5rem;">${lead.state}</td>
+                            <td style="padding: 0.5rem; color: #9ca3af;">${lead.type}</td>
+                        </tr>
+                    `;
+                    tableBody.insertAdjacentHTML('beforeend', rowHtml);
+                });
+            };
+
+            // Render all leads initially
+            renderTable(allLeads);
+
+            // Listen for typing in the search box
+            searchInput.addEventListener("input", (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                
+                // Filter the array based on what the user typed
+                const filteredLeads = allLeads.filter(lead => {
+                    return lead.name.toLowerCase().includes(searchTerm) || 
+                           lead.city.toLowerCase().includes(searchTerm) || 
+                           lead.state.toLowerCase().includes(searchTerm) ||
+                           lead.category.toLowerCase().includes(searchTerm);
+                });
+                
+                renderTable(filteredLeads);
+            });
+
+        } catch (error) {
+            tableBody.innerHTML = `<tr><td colspan="5" style="padding: 1rem; text-align: center; color: #ef4444;">Error loading data: ${error.message}</td></tr>`;
+        }
+    };
+
+    // Trigger the lead search engine
+    initLeadSearchEngine();
+
     // Trigger both modules
     initLibraryEngine();
     initFormStorageEngine();
+
+    
 });
