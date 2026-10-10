@@ -32,93 +32,31 @@
             <a href="support-samples.html" class="btn-link" style="background-color: #0284c7; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px; display: inline-block;">Read My Support Responses</a>
         </section>
 
-        <!-- Lead Generation Project Card -->
+          <!-- Lead Generation Project Card -->
         <section class="card" id="lead-generation-project">
-            <h2>Market Research: Pickleball Facility & Event Lead Generation</h2>
-            <p class="muted"><strong>Role:</strong> Data Entry & Lead Generation Specialist | <strong>Timeline:</strong> January 2025 – August 2026</p>
+            <h2>Market Research: B2B Lead Generation Database</h2>
+            <p class="muted"><strong>Role:</strong> Data Entry Specialist | <strong>Data Cleaned:</strong> 100% PII Removed</p>
             
-            <p><strong>Project Overview:</strong> Designed and compiled a comprehensive B2B lead generation database tracking the rapidly expanding Pickleball market across North America. The project involved sourcing and verifying data for dedicated facilities and upcoming tournament events to facilitate targeted outreach.</p>
+            <p><strong>Project Overview:</strong> Designed and compiled a comprehensive B2B lead generation database tracking the rapidly expanding Pickleball market across North America. Below is an interactive sample of the 1,500+ facility and tournament records I verified.</p>
             
-            <h3>Dataset Metrics (Sanitized)</h3>
-            <ul>
-                <li><strong>Verified Club Facilities:</strong> 188 distinct locations identified.</li>
-                <li><strong>Upcoming & Past Tournaments:</strong> 114 regional events tracked.</li>
-                <li><strong>Top Targeted Markets:</strong> Florida, California, and Texas.</li>
-                <li><strong>Data Cleaned:</strong> 100% of Personally Identifiable Information (PII) removed for public portfolio display to ensure compliance and privacy.</li>
-            </ul>
-
-            <h3>Sanitized Data Preview: Club Facilities</h3>
-            <div style="overflow-x:auto;">
-                <table style="width:100%; text-align:left; border-collapse: collapse; margin-top: 1rem;">
-                    <thead>
-                        <tr style="border-bottom: 2px solid #a78bfa;">
-                            <th style="padding: 0.5rem;">Facility Name</th>
-                            <th style="padding: 0.5rem;">City</th>
-                            <th style="padding: 0.5rem;">State</th>
-                            <th style="padding: 0.5rem;">Facility Type</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid rgba(45,35,88,0.1);">
-                            <td style="padding: 0.5rem;">Pickleball Effect</td>
-                            <td style="padding: 0.5rem;">Nampa</td>
-                            <td style="padding: 0.5rem;">Idaho</td>
-                            <td style="padding: 0.5rem;">Dedicated Facility</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(45,35,88,0.1);">
-                            <td style="padding: 0.5rem;">ELEVENO</td>
-                            <td style="padding: 0.5rem;">Foxborough</td>
-                            <td style="padding: 0.5rem;">Massachusetts</td>
-                            <td style="padding: 0.5rem;">Dedicated Facility</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(45,35,88,0.1);">
-                            <td style="padding: 0.5rem;">Richmond Pickleball Club</td>
-                            <td style="padding: 0.5rem;">Richmond</td>
-                            <td style="padding: 0.5rem;">Virginia</td>
-                            <td style="padding: 0.5rem;">Dedicated Facility</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(45,35,88,0.1);">
-                            <td style="padding: 0.5rem;">Lethbridge Pickleball Club</td>
-                            <td style="padding: 0.5rem;">Lethbridge</td>
-                            <td style="padding: 0.5rem;">Alberta</td>
-                            <td style="padding: 0.5rem;">Dedicated Facility</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Interactive Search Bar -->
+            <div style="margin: 1.5rem 0;">
+                <input type="text" id="lead-search" placeholder="Search by state, city, or name (e.g., 'Florida' or 'Tournament')..." style="width: 100%; padding: 0.75rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: white; font-size: 1rem;">
             </div>
-
-            <br>
-
-            <h3>Sanitized Data Preview: Tournament Events</h3>
+            
             <div style="overflow-x:auto;">
-                <table style="width:100%; text-align:left; border-collapse: collapse; margin-top: 1rem;">
+                <table style="width:100%; text-align:left; border-collapse: collapse;">
                     <thead>
                         <tr style="border-bottom: 2px solid #a78bfa;">
-                            <th style="padding: 0.5rem;">Tournament Name</th>
+                            <th style="padding: 0.5rem;">Category</th>
+                            <th style="padding: 0.5rem;">Name</th>
                             <th style="padding: 0.5rem;">City</th>
                             <th style="padding: 0.5rem;">State</th>
-                            <th style="padding: 0.5rem;">Format</th>
+                            <th style="padding: 0.5rem;">Format / Type</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid rgba(45,35,88,0.1);">
-                            <td style="padding: 0.5rem;">1st Annual Camellia Classic</td>
-                            <td style="padding: 0.5rem;">Slidell</td>
-                            <td style="padding: 0.5rem;">Louisiana</td>
-                            <td style="padding: 0.5rem;">Round Robin</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(45,35,88,0.1);">
-                            <td style="padding: 0.5rem;">DUPR Champs Championships</td>
-                            <td style="padding: 0.5rem;">Naperville</td>
-                            <td style="padding: 0.5rem;">Illinois</td>
-                            <td style="padding: 0.5rem;">Round Robin</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(45,35,88,0.1);">
-                            <td style="padding: 0.5rem;">Charity Cup Classic</td>
-                            <td style="padding: 0.5rem;">St. Cloud</td>
-                            <td style="padding: 0.5rem;">Florida</td>
-                            <td style="padding: 0.5rem;">Round Robin</td>
-                        </tr>
+                    <tbody id="lead-table-body">
+                        <tr><td colspan="5" style="padding: 1rem; text-align: center; color: #a78bfa;">Loading database...</td></tr>
                     </tbody>
                 </table>
             </div>
