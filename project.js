@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json();
             allLeads = data.leads;
             
-            // Function to render table rows
+            // Function to render table rows with a performance limit
             const renderTable = (leadsToDisplay) => {
                 tableBody.innerHTML = ""; // Clear existing rows
                 
@@ -137,10 +137,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                leadsToDisplay.forEach(lead => {
+                // PERFORMANCE LIMIT: Only draw the first 100 matches to keep the browser fast
+                const displayLimit = leadsToDisplay.slice(0, 100);
+
+                displayLimit.forEach(lead => {
                     const rowHtml = `
                         <tr style="border-bottom: 1px solid rgba(45,35,88,0.2);">
-                            <td style="padding: 0.5rem;"><span style="background: ${lead.category === 'Tournament' ? '#0284c7' : '#8b5cf6'}; padding: 2px 6px; border-radius: 4px; font-size: 0.8em;">${lead.category}</span></td>
+                            <td style="padding: 0.5rem;"><span style="background: ${lead.category === 'Tournament' ? '#0284c7' : '#8b5cf6'}; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: white;">${lead.category}</span></td>
                             <td style="padding: 0.5rem; font-weight: bold;">${lead.name}</td>
                             <td style="padding: 0.5rem;">${lead.city}</td>
                             <td style="padding: 0.5rem;">${lead.state}</td>
@@ -149,9 +152,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     `;
                     tableBody.insertAdjacentHTML('beforeend', rowHtml);
                 });
+
+                // Add a note if there are more results hiding behind the limit
+                if (leadsToDisplay.length > 100) {
+                    tableBody.insertAdjacentHTML('beforeend', `
+                        <tr><td colspan="5" style="padding: 1rem; text-align: center; color: #9ca3af; font-style: italic;">
+                            Showing top 100 results of ${leadsToDisplay.length}. Use the search bar to narrow down further.
+                        </td></tr>
+                    `);
+                }
             };
 
-            // Render all leads initially
+            // Render all leads initially (it will cap at 100 automatically)
             renderTable(allLeads);
 
             // Listen for typing in the search box
@@ -174,12 +186,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Trigger the lead search engine
+    // Trigger all modules
     initLeadSearchEngine();
-
-    // Trigger both modules
     initLibraryEngine();
     initFormStorageEngine();
 
-    
 });
