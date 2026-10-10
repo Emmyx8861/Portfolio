@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     workspaceNode.innerHTML = `
                         <div style="padding: 20px; text-align: center;">
                             <p style="color: #ef4444; font-weight: bold;">Error: ${error.message}</p>
-                            <p style="font-size: 0.9em; color: #9ca3af;">Please ensure you uploaded the books.json file to your GitHub repository.</p>
                         </div>
                     `;
                 }
@@ -90,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Function 3: BULLETPROOF Interactive Lead Generation Database Search
+    // Function 3: INDESTRUCTIBLE Lead Generation Database Search
     const initLeadSearchEngine = async () => {
         const searchInput = document.getElementById("lead-search");
         const tableBody = document.getElementById("lead-table-body");
@@ -106,16 +105,27 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const data = await response.json();
             
-            // Handle different JSON structures automatically
-            if (data.leads && Array.isArray(data.leads)) {
-                allLeads = data.leads;
-            } else if (Array.isArray(data)) {
-                allLeads = data;
-            } else if (data.data && Array.isArray(data.data)) {
-                allLeads = data.data;
-            } else {
-                throw new Error("JSON format is unrecognizable.");
-            }
+            // THE FIX: Deep-Unwrapper. This checks if your data accidentally has extra [ ] brackets and removes them.
+            const unwrapData = (obj) => {
+                if (Array.isArray(obj)) {
+                    if (obj.length === 1 && Array.isArray(obj[0])) return unwrapData(obj[0]);
+                    return obj;
+                } else if (typeof obj === 'object' && obj !== null) {
+                    for (const key in obj) {
+                        if (Array.isArray(obj[key])) return unwrapData(obj[key]);
+                    }
+                }
+                return [];
+            };
+
+            allLeads = unwrapData(data);
+
+            // Safe String Converter: Forces absolutely everything to be readable text to prevent the [object] error
+            const safeString = (val) => {
+                if (val === null || val === undefined) return 'Unknown';
+                if (typeof val === 'object') return String(Object.values(val)[0] || 'Unknown');
+                return String(val).trim() || 'Unknown';
+            };
             
             const renderTable = (leadsToDisplay) => {
                 tableBody.innerHTML = ""; 
@@ -125,49 +135,49 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                // PERFORMANCE LIMIT: Draw only 100 rows
                 const displayLimit = leadsToDisplay.slice(0, 100);
 
                 displayLimit.forEach(lead => {
-                    let name = 'Unknown', city = 'Unknown', state = 'Unknown', type = 'Unknown', cat = 'Unknown';
+                    let name = 'Unknown', city = 'Unknown', state = 'Unknown', type = 'Unknown', cat = 'Facility';
 
-                    // If JSON tool output an Array of Arrays
                     if (Array.isArray(lead)) {
-                        name = String(lead[0] || 'Unknown');
-                        city = String(lead[1] || 'Unknown');
-                        state = String(lead[2] || 'Unknown');
-                        type = String(lead[3] || 'Unknown');
-                        cat = String(lead[4] || 'Facility');
+                        name = safeString(lead[0]);
+                        city = safeString(lead[1]);
+                        state = safeString(lead[2]);
+                        type = safeString(lead[3]);
+                        cat = safeString(lead[4] !== 'Unknown' ? lead[4] : 'Facility');
                     } 
-                    // If JSON tool output an Array of Objects (standard)
                     else if (typeof lead === 'object' && lead !== null) {
-                        const keys = Object.keys(lead);
-                        
-                        // Smart Search: Looks for keys containing these words
-                        const findValue = (keywords) => {
-                            const foundKey = keys.find(k => keywords.some(kw => String(k).toLowerCase().includes(kw)));
-                            return foundKey ? String(lead[foundKey]) : 'Unknown';
+                        // Standardize all keys to lowercase for searching
+                        const lowerLead = {};
+                        for (const [k, v] of Object.entries(lead)) {
+                            lowerLead[k.toLowerCase()] = v;
+                        }
+
+                        const getVal = (keywords, defaultVal) => {
+                            const foundKey = Object.keys(lowerLead).find(k => keywords.some(kw => k.includes(kw)));
+                            return foundKey ? safeString(lowerLead[foundKey]) : defaultVal;
                         };
 
-                        name = findValue(['name', 'club', 'tournament', 'first']);
-                        city = findValue(['city', 'town']);
-                        state = findValue(['state', 'province']);
-                        type = findValue(['type', 'format']);
-                        cat = findValue(['category', 'cat']);
+                        name = getVal(['name', 'club', 'tournament', 'first'], 'Unknown');
+                        city = getVal(['city', 'town'], 'Unknown');
+                        state = getVal(['state', 'province'], 'Unknown');
+                        type = getVal(['type', 'format'], 'Unknown');
+                        cat = getVal(['category', 'cat'], 'Facility');
 
-                        // ULTIMATE FALLBACK: If smart search fails, just grab the first 5 values blind
-                        if (name === 'Unknown' && city === 'Unknown' && keys.length > 0) {
+                        // Absolute final fallback
+                        if (name === 'Unknown' && city === 'Unknown') {
                             const vals = Object.values(lead);
-                            name = String(vals[0] || 'Unknown');
-                            city = String(vals[1] || 'Unknown');
-                            state = String(vals[2] || 'Unknown');
-                            type = String(vals[3] || 'Unknown');
-                            cat = String(vals[4] || 'Facility');
+                            if (vals.length >= 4) {
+                                name = safeString(vals[0]);
+                                city = safeString(vals[1]);
+                                state = safeString(vals[2]);
+                                type = safeString(vals[3]);
+                                cat = safeString(vals[4] !== 'Unknown' ? vals[4] : 'Facility');
+                            }
                         }
                     }
 
-                    // Clean up visuals (Forcing strings prevents the .toLowerCase error!)
-                    cat = String(cat);
                     if (cat.toLowerCase().includes('unknown') || cat === '') cat = 'Facility';
 
                     const rowHtml = `
@@ -193,16 +203,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             renderTable(allLeads);
 
-            // Universal Search Box
             searchInput.addEventListener("input", (e) => {
                 const searchTerm = String(e.target.value).toLowerCase();
                 
                 const filteredLeads = allLeads.filter(lead => {
                     let searchString = "";
                     if (Array.isArray(lead)) {
-                        searchString = lead.join(" ").toLowerCase();
+                        searchString = lead.map(val => safeString(val)).join(" ").toLowerCase();
                     } else if (typeof lead === 'object' && lead !== null) {
-                        searchString = Object.values(lead).join(" ").toLowerCase();
+                        searchString = Object.values(lead).map(val => safeString(val)).join(" ").toLowerCase();
                     }
                     return searchString.includes(searchTerm);
                 });
