@@ -32,7 +32,7 @@
             <a href="support-samples.html" class="btn-link" style="background-color: #0284c7; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px; display: inline-block;">Read My Support Responses</a>
         </section>
 
-          <!-- Lead Generation Project Card -->
+        <!-- Lead Generation Project Card -->
         <section class="card" id="lead-generation-project">
             <h2>Market Research: B2B Lead Generation Database</h2>
             <p class="muted"><strong>Role:</strong> Data Entry Specialist | <strong>Data Cleaned:</strong> 100% PII Removed</p>
@@ -41,7 +41,7 @@
             
             <!-- Interactive Search Bar -->
             <div style="margin: 1.5rem 0;">
-                <input type="text" id="lead-search" placeholder="Search by state, city, or name (e.g., 'Florida' or 'Tournament')..." style="width: 100%; padding: 0.75rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: white; font-size: 1rem;">
+                <input type="text" id="lead-search" placeholder="Search by state, city, name, or email..." style="width: 100%; padding: 0.75rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: white; font-size: 1rem;">
             </div>
             
             <div style="overflow-x:auto;">
@@ -57,9 +57,16 @@
                         </tr>
                     </thead>
                     <tbody id="lead-table-body">
-                        <tr><td colspan="5" style="padding: 1rem; text-align: center; color: #a78bfa;">Loading database...</td></tr>
+                        <tr><td colspan="6" style="padding: 1rem; text-align: center; color: #a78bfa;">Loading database...</td></tr>
                     </tbody>
                 </table>
+            </div>
+
+            <!-- Pagination Controls (This is what was missing!) -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 4px;">
+                <button id="prev-page" style="padding: 0.5rem 1rem; background: #2d2358; color: white; border: 1px solid #a78bfa; border-radius: 4px; cursor: pointer; font-weight: bold;">&larr; Previous</button>
+                <span id="page-indicator" style="color: #a78bfa; font-weight: bold;">Page 1</span>
+                <button id="next-page" style="padding: 0.5rem 1rem; background: #2d2358; color: white; border: 1px solid #a78bfa; border-radius: 4px; cursor: pointer; font-weight: bold;">Next &rarr;</button>
             </div>
         </section>
     </main>
