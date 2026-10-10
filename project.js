@@ -12,31 +12,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 const selectedBook = event.target.getAttribute("data-book");
                 const selectedType = event.target.getAttribute("data-type");
 
-                // Temporary loading state
                 workspaceNode.innerHTML = `<div style="padding: 20px; text-align: center;"><p style="color: #a78bfa; font-weight: bold;">Loading manuscript data...</p></div>`;
 
                 try {
-                    // SMART FETCH: Tries the data folder first, then falls back to the root folder
                     let response = await fetch("data/books.json");
-                    
-                    if (!response.ok) {
-                        response = await fetch("books.json"); // Fallback if no data folder exists
-                    }
-                    
-                    if (!response.ok) {
-                        throw new Error("Could not find the books.json file.");
-                    }
+                    if (!response.ok) response = await fetch("books.json");
+                    if (!response.ok) throw new Error("Could not find the books.json file.");
                     
                     const data = await response.json();
 
-                    // Find the specific book and chapter
                     const book = data.books.find(b => b.id === selectedBook);
                     if (!book) throw new Error("Manuscript not found in database.");
 
                     const chapter = book.chapters.find(c => c.id === selectedType);
                     if (!chapter) throw new Error("Specific chapter or excerpt not found.");
 
-                    // Build the HTML strictly utilizing Template Literals
                     let contentHtml = `
                         <div>
                             <h2 style="color: #a78bfa; margin-bottom: 0.5rem;">${book.title} &mdash; ${chapter.title.toUpperCase()}</h2>
@@ -46,14 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         contentHtml += `<p class="muted" style="margin-top: 0; font-size: 0.95em; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);"><em>${chapter.summary}</em> (Est. read time: ${chapter.readTime} min)</p>`;
                     }
 
-                    // Loop through the sample text array and create paragraphs
                     chapter.sample.forEach(paragraph => {
                         contentHtml += `<p style="margin-bottom: 1rem; line-height: 1.7;">${paragraph}</p>`;
                     });
 
                     contentHtml += `</div>`;
-
-                    // Inject the generated HTML into the display area
                     workspaceNode.innerHTML = contentHtml;
 
                 } catch (error) {
@@ -76,29 +63,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!readerForm) return;
 
-        // Populate baseline data elements out of active storage vectors
         let globalLogCount = parseInt(localStorage.getItem("wddReviewCount") || "0", 10);
         if (submissionCounterField) {
             submissionCounterField.textContent = `Total Community Reviews Logged: ${globalLogCount}`;
         }
 
         readerForm.addEventListener("submit", (event) => {
-            event.preventDefault(); // Catch validation track loops
-
+            event.preventDefault(); 
             const inputReaderName = document.getElementById("form-reader-name").value;
             const inputBookContext = document.getElementById("form-book-select").value;
 
-            // Conditional validation gate checking string entries
             if (inputReaderName.trim() !== "") {
                 globalLogCount += 1;
                 localStorage.setItem("wddReviewCount", globalLogCount);
-
-                if (submissionCounterField) {
-                    submissionCounterField.textContent = `Total Community Reviews Logged: ${globalLogCount}`;
-                }
+                if (submissionCounterField) submissionCounterField.textContent = `Total Community Reviews Logged: ${globalLogCount}`;
 
                 if (visualFeedbackAlert) {
-                    // Strict template literal compliance on message building blocks
                     visualFeedbackAlert.innerHTML = `
                         <div style="color: #10b981; margin-bottom: 1rem; font-weight: bold; background: rgba(16,185,129,0.1); padding: 10px; border-radius: 4px;">
                             Log entry saved. Thank you, <strong>${inputReaderName}</strong>, for committing notes toward <em>${inputBookContext}</em>.
@@ -110,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-   // Function 3: Interactive Lead Generation Database Search
+    // Function 3: BULLETPROOF Interactive Lead Generation Database Search
     const initLeadSearchEngine = async () => {
         const searchInput = document.getElementById("lead-search");
         const tableBody = document.getElementById("lead-table-body");
@@ -120,38 +100,78 @@ document.addEventListener("DOMContentLoaded", () => {
         let allLeads = [];
 
         try {
-            // Fetch the leads data
             let response = await fetch("data/leads.json");
             if (!response.ok) response = await fetch("leads.json"); 
             if (!response.ok) throw new Error("Could not find leads.json");
             
             const data = await response.json();
-            // Fallback just in case the JSON converter didn't wrap it in a "leads" object
-            allLeads = data.leads ? data.leads : data; 
             
-            // Function to render table rows with a performance limit
+            // Handle different JSON structures automatically
+            if (data.leads && Array.isArray(data.leads)) {
+                allLeads = data.leads;
+            } else if (Array.isArray(data)) {
+                allLeads = data;
+            } else if (data.data && Array.isArray(data.data)) {
+                allLeads = data.data;
+            } else {
+                throw new Error("JSON format is unrecognizable.");
+            }
+            
             const renderTable = (leadsToDisplay) => {
-                tableBody.innerHTML = ""; // Clear existing rows
+                tableBody.innerHTML = ""; 
                 
                 if (!leadsToDisplay || leadsToDisplay.length === 0) {
-                    tableBody.innerHTML = `<tr><td colspan="5" style="padding: 1rem; text-align: center; color: #ef4444;">No records found matching your search.</td></tr>`;
+                    tableBody.innerHTML = `<tr><td colspan="5" style="padding: 1rem; text-align: center; color: #ef4444;">No records found.</td></tr>`;
                     return;
                 }
 
-                // PERFORMANCE LIMIT: Only draw the first 100 matches to keep the browser fast
+                // PERFORMANCE LIMIT: Draw only 100 rows
                 const displayLimit = leadsToDisplay.slice(0, 100);
 
                 displayLimit.forEach(lead => {
-                    // Bulletproof variables: checks for lowercase FIRST, then uppercase SECOND
-                    const cat = lead.category || lead.Category || 'Unknown';
-                    const name = lead.name || lead.Name || 'Unknown';
-                    const city = lead.city || lead.City || 'Unknown';
-                    const state = lead.state || lead.State || 'Unknown';
-                    const type = lead.type || lead.Type || 'Unknown';
+                    let name = 'Unknown', city = 'Unknown', state = 'Unknown', type = 'Unknown', cat = 'Unknown';
+
+                    // If JSON tool output an Array of Arrays
+                    if (Array.isArray(lead)) {
+                        name = lead[0] || '';
+                        city = lead[1] || '';
+                        state = lead[2] || '';
+                        type = lead[3] || '';
+                        cat = lead[4] || 'Facility';
+                    } 
+                    // If JSON tool output an Array of Objects (standard)
+                    else if (typeof lead === 'object') {
+                        const keys = Object.keys(lead);
+                        
+                        // Smart Search: Looks for keys containing these words
+                        const findValue = (keywords) => {
+                            const foundKey = keys.find(k => keywords.some(kw => k.toLowerCase().includes(kw)));
+                            return foundKey ? String(lead[foundKey]) : 'Unknown';
+                        };
+
+                        name = findValue(['name', 'club', 'tournament', 'first']);
+                        city = findValue(['city', 'town']);
+                        state = findValue(['state', 'province']);
+                        type = findValue(['type', 'format']);
+                        cat = findValue(['category', 'cat']);
+
+                        // ULTIMATE FALLBACK: If smart search fails, just grab the first 5 values blind
+                        if (name === 'Unknown' && city === 'Unknown' && keys.length > 0) {
+                            const vals = Object.values(lead);
+                            name = vals[0] || '';
+                            city = vals[1] || '';
+                            state = vals[2] || '';
+                            type = vals[3] || '';
+                            cat = vals[4] || 'Facility';
+                        }
+                    }
+
+                    // Clean up visuals
+                    if (cat.toLowerCase().includes('unknown') || cat === '') cat = 'Facility';
 
                     const rowHtml = `
                         <tr style="border-bottom: 1px solid rgba(45,35,88,0.2);">
-                            <td style="padding: 0.5rem;"><span style="background: ${cat.toLowerCase() === 'tournament' ? '#0284c7' : '#8b5cf6'}; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: white;">${cat}</span></td>
+                            <td style="padding: 0.5rem;"><span style="background: ${cat.toLowerCase().includes('tournament') ? '#0284c7' : '#8b5cf6'}; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: white;">${cat}</span></td>
                             <td style="padding: 0.5rem; font-weight: bold;">${name}</td>
                             <td style="padding: 0.5rem;">${city}</td>
                             <td style="padding: 0.5rem;">${state}</td>
@@ -161,7 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     tableBody.insertAdjacentHTML('beforeend', rowHtml);
                 });
 
-                // Add a note if there are more results hiding behind the limit
                 if (leadsToDisplay.length > 100) {
                     tableBody.insertAdjacentHTML('beforeend', `
                         <tr><td colspan="5" style="padding: 1rem; text-align: center; color: #9ca3af; font-style: italic;">
@@ -171,24 +190,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             };
 
-            // Render all leads initially (it will cap at 100 automatically)
             renderTable(allLeads);
 
-            // Listen for typing in the search box
+            // Universal Search Box
             searchInput.addEventListener("input", (e) => {
                 const searchTerm = e.target.value.toLowerCase();
                 
-                // Filter the array based on what the user typed
                 const filteredLeads = allLeads.filter(lead => {
-                    const cat = lead.category || lead.Category || '';
-                    const name = lead.name || lead.Name || '';
-                    const city = lead.city || lead.City || '';
-                    const state = lead.state || lead.State || '';
-
-                    return name.toLowerCase().includes(searchTerm) || 
-                           city.toLowerCase().includes(searchTerm) || 
-                           state.toLowerCase().includes(searchTerm) ||
-                           cat.toLowerCase().includes(searchTerm);
+                    let searchString = "";
+                    if (Array.isArray(lead)) {
+                        searchString = lead.join(" ").toLowerCase();
+                    } else if (typeof lead === 'object') {
+                        searchString = Object.values(lead).join(" ").toLowerCase();
+                    }
+                    return searchString.includes(searchTerm);
                 });
                 
                 renderTable(filteredLeads);
