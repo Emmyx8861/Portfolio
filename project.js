@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let allLeads = [];
         let filteredLeads = [];
         let currentPage = 1;
-        const rowsPerPage = 50; // Show 50 rows per page
+        const rowsPerPage = 50; 
 
         try {
             let response = await fetch("data/leads.json");
@@ -111,7 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const data = await response.json();
             
-            // Unwrapper
             const unwrapData = (obj) => {
                 if (Array.isArray(obj)) {
                     if (obj.length === 1 && Array.isArray(obj[0])) return unwrapData(obj[0]);
@@ -139,22 +138,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 return 'N/A';
             };
+
+            // Data Privacy Filter for Emails
+            const maskEmail = (email) => {
+                if (email === 'N/A' || email === 'Unknown' || !email.includes('@')) return email;
+                const parts = email.split('@');
+                const hiddenName = parts[0].substring(0, 2) + '****';
+                return `${hiddenName}@${parts[1]}`;
+            };
             
             const renderTable = () => {
                 tableBody.innerHTML = ""; 
                 
                 const totalPages = Math.ceil(filteredLeads.length / rowsPerPage) || 1;
                 
-                // Safety checks for pagination
                 if (currentPage > totalPages) currentPage = totalPages;
                 if (currentPage < 1) currentPage = 1;
 
-                // Update the Page Text
                 if (pageIndicator) {
                     pageIndicator.textContent = `Page ${currentPage} of ${totalPages} (${filteredLeads.length} total records)`;
                 }
 
-                // Enable/Disable buttons based on current page
                 if (prevBtn) {
                     prevBtn.disabled = currentPage === 1;
                     prevBtn.style.opacity = currentPage === 1 ? "0.5" : "1";
@@ -171,7 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                // Slice the data for the current page
                 const startIndex = (currentPage - 1) * rowsPerPage;
                 const displayLimit = filteredLeads.slice(startIndex, startIndex + rowsPerPage);
 
@@ -199,7 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             return foundKey ? safeString(lowerLead[foundKey]) : defaultVal;
                         };
 
-                        // Extracts Name, Event, Email, etc.
                         name = getVal(['name', 'club', 'tournament', 'event', 'organization'], 'N/A');
                         email = getVal(['email', 'mail', 'contact'], 'N/A');
                         city = getVal(['city', 'town'], 'N/A');
@@ -210,13 +212,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (cat.toLowerCase().includes('n/a') || cat === '') cat = 'Facility';
 
+                    // THE FIX: HTML cells are now perfectly ordered to match your table headers, and the email is masked.
                     const rowHtml = `
                         <tr style="border-bottom: 1px solid rgba(45,35,88,0.2);">
                             <td style="padding: 0.5rem;"><span style="background: ${cat.toLowerCase().includes('tournament') ? '#0284c7' : '#8b5cf6'}; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: white;">${cat}</span></td>
                             <td style="padding: 0.5rem; font-weight: bold;">${name}</td>
-                            <td style="padding: 0.5rem; color: #a78bfa;">${email}</td>
                             <td style="padding: 0.5rem;">${city}</td>
                             <td style="padding: 0.5rem;">${state}</td>
+                            <td style="padding: 0.5rem; color: #a78bfa;">${maskEmail(email)}</td>
                             <td style="padding: 0.5rem; color: #9ca3af;">${type}</td>
                         </tr>
                     `;
@@ -224,7 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             };
 
-            // Setup Next/Prev Button Clicks
             if (prevBtn) {
                 prevBtn.addEventListener("click", () => {
                     if (currentPage > 1) {
@@ -244,10 +246,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
 
-            // Initial Render
             renderTable();
 
-            // Search Bar Functionality
             searchInput.addEventListener("input", (e) => {
                 const searchTerm = String(e.target.value).toLowerCase();
                 
@@ -261,7 +261,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     return searchString.includes(searchTerm);
                 });
                 
-                // When a user searches, jump back to page 1
                 currentPage = 1;
                 renderTable();
             });
